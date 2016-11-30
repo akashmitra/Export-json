@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="exportApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XLSX Parse</title>
+</head>
+<body ng-controller="exportCtrl">
+
+<h1>{{title}}</h1>
+
+<button ng-click="exportData('test')">Export</button>
+<br/>
+<div id="exportable">
+    <table width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>DoB</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in items">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.dob | date:'MM/dd/yy'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- JavaScript-->
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/exportumxls.min.js"></script>
+<script src="js/controller/exportController.js"></script>
+</body>
+</html>
