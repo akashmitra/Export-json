@@ -1,4 +1,13 @@
 # Exportum-xls
+
+
+[![NPM version][npm-image]][npm-url]
+[![Build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![Dependency Status][david-image]][david-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
+
 ## Description: 
 Angular Projects needs to export their json to xls. This would help them achieve the same with minimum burn. This project is a fork of alasql. Thanks to Andrey for the amazing JS SQL API.
 
