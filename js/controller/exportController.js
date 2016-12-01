@@ -47,6 +47,7 @@
 
     /**
      * Service for Export
+     * @param Options in js object form
      */
     function exporTo() {
         this.file = function (options) {
