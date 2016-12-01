@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    /*Controller for export App Sample Application*/
+    /*Controller for export App Sample Application */
     angular.module('exportApp', [])
         .controller('exportCtrl', exportCtrl)
         .service('ExporTo', exporTo);
