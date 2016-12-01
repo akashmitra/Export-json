@@ -22,11 +22,11 @@
                     {columnid: 'dob', title: 'Birthday'}
                 ]
             }
-            ExporTo.xlsx(options);
+            ExporTo.file(options);
         };
 
-
         $scope.filename = "Students";
+
         $scope.items = [{
             name: "Akash Mitra",
             email: "Akash.Mitra@wexinc.com",
@@ -48,7 +48,7 @@
      * Service for Export
      */
     function exporTo() {
-        this.xlsx = function (options) {
+        this.file = function (options) {
             var style = {
                 sheetid: options.sheetid,
                 headers: options.headers,
@@ -57,10 +57,13 @@
             try {
                 if (options.type == "xls") {
                     console.warn('Export with warning');
-                    exportumxls('SELECT * INTO XLS("' + options.filename + '.xls",?) FROM ?', [style, options.data]);
+                    exportum('SELECT * INTO XLS("' + options.filename + '.xls",?) FROM ?', [style, options.data]);
                 }
                 else if (options.type == "xlsx") {
-                    exportumxls('SELECT * INTO XLSX("' + options.filename + '.xlsx",?) FROM ?', [style, options.data]);
+                    exportum('SELECT * INTO XLSX("' + options.filename + '.xlsx",?) FROM ?', [style, options.data]);
+                }
+                else if (options.type == "csv") {
+                    exportum('SELECT * INTO CSV("' + options.filename + '.csv",?) FROM ?', [style, options.data]);
                 }
             } catch (error) {
                 console.error('Error in Exporting :: ' + error);
