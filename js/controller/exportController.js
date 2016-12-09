@@ -17,12 +17,13 @@
                 filename: $scope.filename,
                 sheetid: $scope.filename,
                 headers: true,
-                columns: [
+                requiredrecords: ['name', 'email'],
+                columnNames: [
                     {columnid: 'name', title: 'Name'},
                     {columnid: 'email', title: 'Email'},
                     {columnid: 'dob', title: 'Birthday'}
                 ]
-            }
+            };
             ExporTo.file(options);
         };
 
@@ -47,25 +48,29 @@
 
     /**
      * Service for Export
-     * @param Options in js object form
      */
     function exporTo() {
         this.file = function (options) {
+
             var style = {
                 sheetid: options.sheetid,
                 headers: options.headers,
-                columns: options.columns
+                columns: options.columnNames
             };
+
+            var recordsToExport = ((options.requiredrecords == null || (options.requiredrecords.length == 0)) ? '*' : options.requiredrecords.join(','));
+            //console.log('Header :: ' + recordsToExport);
+
             try {
                 if (options.type == "xls") {
                     console.warn('Export with warning');
-                    exportum('SELECT * INTO XLS("' + options.filename + '.xls",?) FROM ?', [style, options.data]);
+                    exportum('SELECT ' + recordsToExport + 'INTO XLS("' + options.filename + '.xls",?) FROM ?', [style, options.data]);
                 }
                 else if (options.type == "xlsx") {
-                    exportum('SELECT * INTO XLSX("' + options.filename + '.xlsx",?) FROM ?', [style, options.data]);
+                    exportum('SELECT ' + recordsToExport + ' INTO XLSX("' + options.filename + '.xlsx",?) FROM ?', [style, options.data]);
                 }
                 else if (options.type == "csv") {
-                    exportum('SELECT * INTO CSV("' + options.filename + '.csv",?) FROM ?', [style, options.data]);
+                    exportum('SELECT ' + recordsToExport + ' INTO CSV("' + options.filename + '.csv",?) FROM ?', [style, options.data]);
                 }
             } catch (error) {
                 console.error('Error in Exporting :: ' + error);
