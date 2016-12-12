@@ -18,11 +18,19 @@ Now what are the options. For the time being xlsx version doesnt go pretty well 
 
 Options:
 type - 'xlsx' or 'xls', takes in string.
+
 data - the json data object.
-filename - the name of the file.           
+
+filename - the name of the file.    
+
 sheetid - the name of the sheet.
+
 header -  true or false, takes boolean.
+
 columns - columnid - json key names , title: header in spreadsheet (doesnt really work for xlsx).
+
+requiredrecords- the record headers you want to export.
+
 
 For e.g. Columns = [{columnid: 'name', title: 'Name'},{columnid: 'email', title: 'Email'},{columnid: 'dob', title: 'Birthday'}]
 
