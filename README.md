@@ -17,6 +17,7 @@ For e.g. ExporTo.xlsx(options);
 Now what are the options. For the time being xlsx version doesnt go pretty well with the options of colors and stuffs, while xls does. However, Chrome has some problems with xls. Working on this and will fix it later as time permits.
 
 Options:
+
 type - 'xlsx' or 'xls', takes in string.
 
 data - the json data object.
