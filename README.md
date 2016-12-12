@@ -11,7 +11,7 @@ Include the js exportumxls.min.js in your html page.
 **Step2:**
 Include the service 'ExporTo' to your controller. And call in the method 'xlsx'
 
-For e.g. ExporTo.xlsx(options);
+For e.g. ExporTo.file(options);
 
 **Step3:**
 Now what are the options. For the time being xlsx version doesnt go pretty well with the options of colors and stuffs, while xls does. However, Chrome has some problems with xls. Working on this and will fix it later as time permits.
