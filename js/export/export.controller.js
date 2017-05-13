@@ -20,7 +20,7 @@
 
         vm.exportData = function () {
             var options = {
-                type: 'xls',
+                type: 'csv',
                 data: vm.items,
                 filename: vm.filename,
                 sheetid: vm.filename,

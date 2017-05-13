@@ -19,13 +19,13 @@
             try {
                 if (options.type === "xls") {
                     console.warn('Export with warning');
-                    exportum('SELECT ' + recordsToExport + 'INTO XLS("' + options.filename + '.xls",?) FROM ?', [style, options.data]);
+                    alasql('SELECT ' + recordsToExport + 'INTO XLS("' + options.filename + '.xls",?) FROM ?', [style, options.data]);
                 }
                 else if (options.type === "xlsx") {
-                    exportum('SELECT ' + recordsToExport + ' INTO XLSX("' + options.filename + '.xlsx",?) FROM ?', [style, options.data]);
+                    alasql('SELECT ' + recordsToExport + ' INTO XLSX("' + options.filename + '.xlsx",?) FROM ?', [style, options.data]);
                 }
                 else if (options.type === "csv") {
-                    exportum('SELECT ' + recordsToExport + ' INTO CSV("' + options.filename + '.csv",{separator:","},?) FROM ?', [style, options.data]);
+                    alasql('SELECT ' + recordsToExport + ' INTO CSV("' + options.filename + '.csv",{separator:","},?) FROM ?', [style, options.data]);
                 }
             } catch (error) {
                 console.error('Error in Exporting :: ' + error);
